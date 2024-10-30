@@ -12,6 +12,7 @@ Route::name('runway.')->prefix('runway')->group(function () {
     Route::get('/{resource}', [ResourceController::class, 'index'])->name('index');
 
     Route::get('{resource}/listing-api', [ResourceListingController::class, 'index'])->name('listing-api');
+    Route::patch('{resource}/listing-api', [ResourceListingController::class, 'update'])->name('listing-api.update');
     Route::post('{resource}/actions', [ResourceActionController::class, 'runAction'])->name('actions.run');
     Route::post('{resource}/actions/list', [ResourceActionController::class, 'bulkActionsList'])->name('actions.bulk');
 

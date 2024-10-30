@@ -270,6 +270,11 @@ class Resource
         return $this->searchIndex() !== null;
     }
 
+    public function hasStructure(): bool
+    {
+        return $this->config->get('structure') === true;
+    }
+
     public function toArray(): array
     {
         return [
@@ -282,6 +287,7 @@ class Resource
             'route' => $this->route(),
             'has_publish_states' => $this->hasPublishStates(),
             'published_column' => $this->publishedColumn(),
+            'has_structure' => $this->hasStructure(),
         ];
     }
 

@@ -15,6 +15,9 @@
         action-url="{{ $actionUrl }}"
         primary-column="{{ $primaryColumn }}"
         :has-publish-states="{{ Statamic\Support\Str::bool($resource->hasPublishStates()) }}"
+        :can-use-structure-tree="{{ Statamic\Support\Str::bool($resource->hasStructure()) }}"
+        structure-url="{{ cp_route('runway.listing-api', ['resource' => $resource->handle()]) }}"
+        submit-url="{{ cp_route('runway.listing-api.update', ['resource' => $resource->handle()]) }}"
     >
         <template #twirldown="{ actionCompleted }">
             @can('configure fields')
